@@ -21,16 +21,14 @@ public class ZykApplicationContext {
         //ComponentScan注解-->扫描路径-->扫描
         ComponentScan componentScanAnnotation = (ComponentScan) configClass.getDeclaredAnnotation(ComponentScan.class);
         String path = componentScanAnnotation.value();//扫描路径
-        System.out.println("path:"+path);
+        String path_url = path.replace(".","/");
         //扫描 包下的类
         //Bootstrap -->jre/lib
         //Ext -->jre/ext/lib
         //App -->calsspath
         ClassLoader classLoader = ZykApplicationContext.class.getClassLoader(); //App 应用类加载器
-        URL resource = classLoader.getResource("com/zyk/service");
+        URL resource = classLoader.getResource(path_url);
         File file = new File(resource.getFile());
-        System.out.println(file.isDirectory());
-
         if (file.isDirectory()) {
             File[] files = file.listFiles();
             for (File f : files) {
@@ -42,10 +40,7 @@ public class ZykApplicationContext {
     }
 
     public ZykApplicationContext() {
-
     }
-
-
     public Object getBean(String beanName) {
         return null;
     }
