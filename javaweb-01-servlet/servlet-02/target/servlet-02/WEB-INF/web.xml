@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+    <context-param>
+        <param-name>url</param-name>
+        <param-value>jdbc:mysql://localhost:3306/mybatis</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>hello</servlet-name>
+        <servlet-class>com.zyk.servlet.HelloWorld</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>hello</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>gets</servlet-name>
+        <servlet-class>com.zyk.servlet.GetServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>gets</servlet-name>
+        <url-pattern>/gets</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>s3</servlet-name>
+        <servlet-class>com.zyk.servlet.ServletDemo03</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s3</servlet-name>
+        <url-pattern>/s3</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>s4</servlet-name>
+        <servlet-class>com.zyk.servlet.ServletDemo04</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s4</servlet-name>
+        <url-pattern>/s4</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>s5</servlet-name>
+        <servlet-class>com.zyk.servlet.ServletDemo05</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s5</servlet-name>
+        <url-pattern>/s5</url-pattern>
+    </servlet-mapping>
+</web-app>
