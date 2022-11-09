@@ -15,6 +15,7 @@
         <module>request</module>
         <module>javaweb-cookie-session</module>
         <module>jsp</module>
+        <module>filter</module>
     </modules>
 
     <dependencies>
