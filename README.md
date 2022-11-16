@@ -15,3 +15,10 @@ git config --global http.sslVerify "false"
 
 ipconfig  /flushdns
 
+
+
+**文件过大，超过上限**
+
+修改为 500MB，在 `Git Bash` 中输入以下命令：
+
+git config http.postBuffer 5242880003
