@@ -1,0 +1,18 @@
+server:
+  port: 9090
+  servlet:
+    context-path: /modules
+#数据库配置
+spring:
+  profiles:
+    active: common,dao,service
+  datasource:
+    druid:
+      username: root
+      password: 123456
+      url: jdbc:mysql://localhost:3306/spring-model-parent?useUnicode=true&useSSL=false&characterEncoding=utf8
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      type: com.alibaba.durid.pool.DruidDataSource
+#配置mybatisplus
+mybatis-plus:
+  mapper-locations: classpath:mapper/*/*.xml
