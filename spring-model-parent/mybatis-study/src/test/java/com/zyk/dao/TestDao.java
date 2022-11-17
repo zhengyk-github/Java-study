@@ -29,4 +29,50 @@ public class TestDao {
         sqlSession.close();
 
     }
+
+    @Test
+    public void getUserById() {
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserDao userDao = sqlSession.getMapper(UserDao.class);
+        int id = 2;
+        User user = userDao.getUserById(id);
+        System.out.println("获取的结果如下：");
+        System.out.println(user);
+        System.out.println("获取结束，执行close");
+        sqlSession.close();
+    }
+    @Test
+    public void addUser(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserDao userDao = sqlSession.getMapper(UserDao.class);
+        User user = new User();
+        user.setId(4);
+        user.setName("郑永凯");
+        user.setPwd("123456");
+        int count = userDao.addUser(user);
+        System.out.println("获取的结果如下：");
+        System.out.println(count);
+        sqlSession.commit();
+        System.out.println("获取结束，执行close");
+        sqlSession.close();
+    }
+    @Test
+    public void updateUser(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserDao userDao = sqlSession.getMapper(UserDao.class);
+        int count = userDao.updateUser(new User(4, "哈哈", "123321"));
+        System.out.println(count);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+    @Test
+    public void deleteUser(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserDao userDao = sqlSession.getMapper(UserDao.class);
+        int count = userDao.deleteUser(new User(4, "", ""));
+        System.out.println(count);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
 }
