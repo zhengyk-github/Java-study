@@ -5,7 +5,9 @@ import com.zyk.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName: TestDao
@@ -42,6 +44,42 @@ public class TestDao {
         sqlSession.close();
     }
     @Test
+    public void getUserByIdByMap(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserDao userDao = sqlSession.getMapper(UserDao.class);
+        Map<String, Object> map = new HashMap<>();
+        map.put("userid",5);
+        User user = userDao.getUserByIdByMap(map);
+        System.out.println(user);
+        sqlSession.close();
+    }
+    @Test
+    //%拼接
+    public void getUserByIdLike() {
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserDao userDao = sqlSession.getMapper(UserDao.class);
+        List<User> user = userDao.getUserByIdLike("测");
+        System.out.println("获取的结果如下：");
+        for (User user1 : user) {
+            System.out.println(user1);
+        }
+        System.out.println("获取结束，执行close");
+        sqlSession.close();
+    }
+    @Test
+    //concat拼接
+    public void getUserByIdLike2() {
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserDao userDao = sqlSession.getMapper(UserDao.class);
+        List<User> user = userDao.getUserByIdLike2("测");
+        System.out.println("获取的结果如下：");
+        for (User user1 : user) {
+            System.out.println(user1);
+        }
+        System.out.println("获取结束，执行close");
+        sqlSession.close();
+    }
+    @Test
     public void addUser(){
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserDao userDao = sqlSession.getMapper(UserDao.class);
@@ -50,10 +88,20 @@ public class TestDao {
         user.setName("郑永凯");
         user.setPwd("123456");
         int count = userDao.addUser(user);
-        System.out.println("获取的结果如下：");
         System.out.println(count);
         sqlSession.commit();
-        System.out.println("获取结束，执行close");
+        sqlSession.close();
+    }
+    @Test
+    public void addUserByMap(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserDao userDao = sqlSession.getMapper(UserDao.class);
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("username","测试1");
+        map.put("userpassword","123654");
+        int count = userDao.addUserByMap(map);
+        System.out.println(count);
+        sqlSession.commit();
         sqlSession.close();
     }
     @Test
