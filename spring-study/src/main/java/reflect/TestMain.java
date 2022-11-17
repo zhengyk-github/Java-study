@@ -21,7 +21,12 @@ public class TestMain {
         //0--默认不写  1--public  2--private  4--protected
         //8--static  16--final  32--synchronized 64--volatile
         //128--transient  256--native  512--interface  1024--abstract
-        System.out.println("result:"+result);
+        System.out.println("result:" + result);
+
+        String name = clazz.getName();//获取名字(包名.类名)
+        String simpleName = clazz.getSimpleName();//获取名字(类名)
+        System.out.println("name:" + name);
+        System.out.println("simpleName:" + simpleName);
 
     }
 }
