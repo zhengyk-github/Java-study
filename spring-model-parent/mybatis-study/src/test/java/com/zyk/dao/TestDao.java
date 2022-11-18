@@ -19,6 +19,7 @@ import java.util.Map;
  **/
 public class TestDao {
     @Test
+    //getUserList
     public void test() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserDao userDao = sqlSession.getMapper(UserDao.class);
@@ -33,6 +34,7 @@ public class TestDao {
     }
 
     @Test
+    //getUserById
     public void getUserById() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserDao userDao = sqlSession.getMapper(UserDao.class);
@@ -43,7 +45,9 @@ public class TestDao {
         System.out.println("获取结束，执行close");
         sqlSession.close();
     }
+
     @Test
+    //getUserByIdByMap
     public void getUserByIdByMap(){
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserDao userDao = sqlSession.getMapper(UserDao.class);
@@ -53,6 +57,7 @@ public class TestDao {
         System.out.println(user);
         sqlSession.close();
     }
+
     @Test
     //%拼接
     public void getUserByIdLike() {
@@ -66,6 +71,7 @@ public class TestDao {
         System.out.println("获取结束，执行close");
         sqlSession.close();
     }
+
     @Test
     //concat拼接
     public void getUserByIdLike2() {
@@ -79,7 +85,9 @@ public class TestDao {
         System.out.println("获取结束，执行close");
         sqlSession.close();
     }
+
     @Test
+    //addUser
     public void addUser(){
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserDao userDao = sqlSession.getMapper(UserDao.class);
@@ -92,7 +100,9 @@ public class TestDao {
         sqlSession.commit();
         sqlSession.close();
     }
+
     @Test
+    //addUserByMap
     public void addUserByMap(){
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserDao userDao = sqlSession.getMapper(UserDao.class);
@@ -104,7 +114,9 @@ public class TestDao {
         sqlSession.commit();
         sqlSession.close();
     }
+
     @Test
+    //updateUser
     public void updateUser(){
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserDao userDao = sqlSession.getMapper(UserDao.class);
@@ -113,7 +125,9 @@ public class TestDao {
         sqlSession.commit();
         sqlSession.close();
     }
+
     @Test
+    //deleteUser
     public void deleteUser(){
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserDao userDao = sqlSession.getMapper(UserDao.class);
@@ -122,5 +136,18 @@ public class TestDao {
         sqlSession.commit();
         sqlSession.close();
     }
+
+    @Test
+    //testeq
+    public void testeq(){
+        String Zjlb = "5";
+        if(!Zjlb.equals("0") && !Zjlb.equals("4") && !Zjlb.equals("15") && !Zjlb.equals("27")){
+            System.out.println("进入if");
+        }
+
+    }
+
+
+
 
 }
