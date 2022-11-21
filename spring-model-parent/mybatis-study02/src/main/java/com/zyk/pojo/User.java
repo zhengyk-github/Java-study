@@ -1,5 +1,7 @@
 package com.zyk.pojo;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * @ClassName: user
  * @Date: Created in 2022/11/17 10:26
@@ -8,6 +10,7 @@ package com.zyk.pojo;
  * @Modified By:
  * @Description: TODO
  **/
+@Alias(value = "userTest")
 public class User {
     private int id;
     private String name;

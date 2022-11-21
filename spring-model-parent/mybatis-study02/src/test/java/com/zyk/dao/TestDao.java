@@ -30,5 +30,20 @@ public class TestDao {
         sqlSession.close();
 
     }
+    @Test
+    //getUserListAlias
+    public void testAlias() {
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserMapper userDao = sqlSession.getMapper(UserMapper.class);
+        List<User> userList = userDao.getUserListAlias();
+        System.out.println("获取的结果如下：");
+        for (User user : userList) {
+            System.out.println(user);
+        }
+        System.out.println("获取结束，执行close");
+        sqlSession.close();
+
+    }
+
 
 }
