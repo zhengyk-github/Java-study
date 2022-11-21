@@ -27,7 +27,12 @@
             </dataSource>
         </environment>
     </environments>
+    <!--每一个Mapper.xml都需要在mybatis核心配置文件中注册-->
     <mappers>
         <mapper resource="com/zyk/dao/userMapper.xml"/>
+        <!--使用映射器接口实现类的完全限定类名 注意点：1.接口和他的mapper配置文件必须同名 2.接口和他的mapper配置文件必须在同一个包下-->
+        <!--<mapper class="com.zyk.dao.UserMapper"></mapper>-->
+        <!--将包内的映射器接口实现全部注册为映射器 注意点：1.接口和他的mapper配置文件必须同名 2.接口和他的mapper配置文件必须在同一个包下-->
+        <!--<package name="com.zyk.dao"/>-->
     </mappers>
 </configuration>
