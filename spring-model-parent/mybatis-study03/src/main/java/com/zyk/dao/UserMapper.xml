@@ -17,5 +17,9 @@
     <select id="getUserListAlias" resultMap="UserMap">
     select * from User
     </select>
+    <!--分页查询-->
+    <select id="getUserByLimit" parameterType="map" resultMap="UserMap">
+    select * from User limit #{startIndex},#{pageSize}
+    </select>
 
 </mapper>
