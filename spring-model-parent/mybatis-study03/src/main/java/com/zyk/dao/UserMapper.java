@@ -20,7 +20,10 @@ public interface UserMapper {
     //查询全部用户 使用
     List<User> getUserListAlias();
 
-    //分页查询查询
+    //分页查询查询 limit
     List<User> getUserByLimit(Map<String, Integer> map);
+
+    //分页查询查询 RowBounds
+    List<User> getUserByRowBounds();
 
 }

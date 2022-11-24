@@ -21,5 +21,8 @@
     <select id="getUserByLimit" parameterType="map" resultMap="UserMap">
     select * from User limit #{startIndex},#{pageSize}
     </select>
+    <select id="getUserByRowBounds" resultMap="UserMap">
+         select * from User
+    </select>
 
 </mapper>
