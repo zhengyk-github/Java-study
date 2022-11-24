@@ -3,6 +3,7 @@ package com.zyk.dao;
 import com.zyk.pojo.User;
 import com.zyk.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 
 import java.util.List;
@@ -16,34 +17,30 @@ import java.util.List;
  * @Description: TODO
  **/
 public class TestDao {
-    @Test
-    //getUserList
-    public void test() {
-        SqlSession sqlSession = MybatisUtils.getSqlSession();
-        UserMapper userDao = sqlSession.getMapper(UserMapper.class);
-        List<User> userList = userDao.getUserList();
-        System.out.println("获取的结果如下：");
-        for (User user : userList) {
-            System.out.println(user);
-        }
-        System.out.println("获取结束，执行close");
-        sqlSession.close();
+	static Logger logger = Logger.getLogger(TestDao.class);
 
-    }
-    @Test
-    //getUserListAlias
-    public void testAlias() {
-        SqlSession sqlSession = MybatisUtils.getSqlSession();
-        UserMapper userDao = sqlSession.getMapper(UserMapper.class);
-        List<User> userList = userDao.getUserListAlias();
-        System.out.println("获取的结果如下：");
-        for (User user : userList) {
-            System.out.println(user);
-        }
-        System.out.println("获取结束，执行close");
-        sqlSession.close();
-        
-    }
+	@Test
+	//getUserList
+	public void test() {
+		SqlSession sqlSession = MybatisUtils.getSqlSession();
+		UserMapper userDao = sqlSession.getMapper(UserMapper.class);
+		List<User> userList = userDao.getUserList();
+		System.out.println("获取的结果如下：");
+		for (User user : userList) {
+			System.out.println(user);
+		}
+		System.out.println("获取结束，执行close");
+		sqlSession.close();
 
+	}
+
+	@Test
+	//testlog4j
+	public void testlog4j() {
+		logger.info("info:进入testlog4j()");
+		logger.debug("debug:进入testlog4j()");
+		logger.error("error:进入testlog4j()");
+
+	}
 
 }
