@@ -16,6 +16,7 @@
         <module name="dao" />
         <module name="mybatis-study03" />
         <module name="service" />
+        <module name="mybatis-study06" />
         <module name="mybatis-study04" />
       </profile>
     </annotationProcessing>
@@ -29,6 +30,7 @@
       <module name="mybatis-study03" target="1.8" />
       <module name="mybatis-study04" target="1.8" />
       <module name="mybatis-study05" target="1.8" />
+      <module name="mybatis-study06" target="1.8" />
       <module name="service" target="1.8" />
       <module name="spring-model-parent" target="1.8" />
       <module name="web01" target="1.7" />
@@ -45,6 +47,7 @@
       <module name="mybatis-study03" options="-parameters" />
       <module name="mybatis-study04" options="-parameters" />
       <module name="mybatis-study05" options="-parameters" />
+      <module name="mybatis-study06" options="-parameters" />
       <module name="service" options="-parameters" />
       <module name="web01" options="-parameters" />
       <module name="web02" options="-parameters" />

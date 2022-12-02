@@ -19,6 +19,7 @@
         <module>mybatis-study03</module>
         <module>mybatis-study04</module>
         <module>mybatis-study05</module>
+        <module>mybatis-study06</module>
     </modules>
     <packaging>pom</packaging>
 
