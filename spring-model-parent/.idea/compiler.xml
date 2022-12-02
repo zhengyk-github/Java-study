@@ -9,12 +9,14 @@
         <module name="web02" />
         <module name="web01" />
         <module name="commom" />
+        <module name="mybatis-study05" />
         <module name="mybatis-study" />
         <module name="entrance" />
         <module name="mybatis-study02" />
         <module name="dao" />
         <module name="mybatis-study03" />
         <module name="service" />
+        <module name="mybatis-study04" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -25,6 +27,8 @@
       <module name="mybatis-study" target="1.8" />
       <module name="mybatis-study02" target="1.8" />
       <module name="mybatis-study03" target="1.8" />
+      <module name="mybatis-study04" target="1.8" />
+      <module name="mybatis-study05" target="1.8" />
       <module name="service" target="1.8" />
       <module name="spring-model-parent" target="1.8" />
       <module name="web01" target="1.7" />
@@ -39,6 +43,8 @@
       <module name="mybatis-study" options="-parameters" />
       <module name="mybatis-study02" options="-parameters" />
       <module name="mybatis-study03" options="-parameters" />
+      <module name="mybatis-study04" options="-parameters" />
+      <module name="mybatis-study05" options="-parameters" />
       <module name="service" options="-parameters" />
       <module name="web01" options="-parameters" />
       <module name="web02" options="-parameters" />
