@@ -1,5 +1,6 @@
 package com.zyk.dao;
 
+import com.zyk.pojo.Student;
 import com.zyk.pojo.Teacher;
 import com.zyk.utils.MybatisUtils;
 import org.apache.ibatis.session.RowBounds;
@@ -29,6 +30,30 @@ public class TestDao {
 		System.out.println("teacherById:"+teacherById);
 		sqlSession.close();
 	}
+	@Test
+	//getStudent
+	public void getStudent() {
+		SqlSession sqlSession = MybatisUtils.getSqlSession();
+		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+		List<Student> student = mapper.getStudent();
+		for (Student student1 : student) {
+			System.out.println(student1);
+			//System.out.println(student1.getTeacher().getName());
+		}
+		sqlSession.close();
+	}
 
+	@Test
+	//getStudent2
+	public void getStudent2() {
+		SqlSession sqlSession = MybatisUtils.getSqlSession();
+		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+		List<Student> student = mapper.getStudent2();
+		for (Student student2 : student) {
+			System.out.println(student2);
+			//System.out.println(student2.getTeacher().getName());
+		}
+		sqlSession.close();
+	}
 
 }

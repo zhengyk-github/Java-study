@@ -1,8 +1,11 @@
 package com.zyk.dao;
 
+import com.zyk.pojo.Student;
 import com.zyk.pojo.Teacher;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * @ClassName: StudentMapper
@@ -14,4 +17,7 @@ import org.apache.ibatis.annotations.Select;
  **/
 public interface StudentMapper {
 
+	List<Student> getStudent();
+
+	List<Student> getStudent2();
 }
