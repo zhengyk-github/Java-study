@@ -20,6 +20,7 @@
         <module>mybatis-study04</module>
         <module>mybatis-study05</module>
         <module>mybatis-study06</module>
+        <module>mybatis-study07</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -76,6 +77,11 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
         </dependency>
     </dependencies>
 
