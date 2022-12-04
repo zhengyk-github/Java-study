@@ -10,6 +10,7 @@ import org.junit.Test;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName: TestDao
@@ -17,7 +18,7 @@ import java.util.List;
  * @Version: 1.0
  * @Author: zhengyongkai
  * @Modified By:
- * @Description: TODO
+ * @Description: 所谓的动态SQL,本质还是SQL语句,只是我们可以在SQL层面去执行一个逻辑代码
  **/
 public class TestDao {
 	static Logger logger = Logger.getLogger(TestDao.class);
@@ -43,18 +44,64 @@ public class TestDao {
 		sqlSession.close();
 	}
 
-
+	//queryBlogIf
 	@Test
-	public void queryBlogIf(){
+	public void queryBlogIf() {
 		SqlSession sqlSession = MybatisUtils.getSqlSession();
 		BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
 		HashMap<String, String> map = new HashMap<>();
-		map.put("title","Mybatis很简单");
-		map.put("author","郑永凯");
+		map.put("title", "Mybatis很简单");
+		map.put("author", "郑永凯");
 		List<Blog> blogs = mapper.queryBlogIf(map);
 		for (Blog blog : blogs) {
 			System.out.println(blog);
 		}
 		sqlSession.close();
 	}
+
+	@Test
+	//queryBlogWhere
+	public void queryBlogWhere() {
+		SqlSession sqlSession = MybatisUtils.getSqlSession();
+		BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+		HashMap<String, String> map = new HashMap<>();
+		//map.put("title", "Mybatis很简单");
+		map.put("author", "郑永凯");
+		List<Blog> blogs = mapper.queryBlogWhere(map);
+		for (Blog blog : blogs) {
+			System.out.println(blog);
+		}
+		sqlSession.close();
+	}
+
+	@Test
+	//queryBlogChoose
+	public void queryBlogChoose() {
+		SqlSession sqlSession = MybatisUtils.getSqlSession();
+		BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+		HashMap map = new HashMap();
+		//map.put("title", "Mybatis很简单");
+		//map.put("author", "郑永凯");
+		map.put("views",999);
+		List<Blog> blogs = mapper.queryBlogChoose(map);
+		for (Blog blog : blogs) {
+			System.out.println(blog);
+		}
+		sqlSession.close();
+	}
+
+	@Test
+	//updateBlog
+	public void updateBlog() {
+		SqlSession sqlSession = MybatisUtils.getSqlSession();
+		BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+		HashMap map = new HashMap();
+		map.put("title", "Mybatis很简单 是的");
+		map.put("author", "郑永凯 测试");
+		map.put("id","08c4f0e8b5d74af4b655827c7edc0f31");
+		int count = mapper.updateBlog(map);
+		System.out.println(count);
+		sqlSession.close();
+	}
+
 }

@@ -17,5 +17,17 @@ public interface BlogMapper {
 
 	int addBlog(Blog blog);
 
+	//动态SQL之IF语句
 	List<Blog> queryBlogIf(HashMap<String, String> map);
+
+	//queryBlogWhere
+	List<Blog> queryBlogWhere(HashMap<String, String> map);
+
+	//动态SQL之Choose语句
+	List<Blog> queryBlogChoose(HashMap map);
+
+	//set标签的用法
+	int updateBlog(HashMap map);
+
+
 }
