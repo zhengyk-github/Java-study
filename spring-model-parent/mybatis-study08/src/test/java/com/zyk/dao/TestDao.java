@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.junit.Test;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -42,4 +43,18 @@ public class TestDao {
 		sqlSession.close();
 	}
 
+
+	@Test
+	public void queryBlogIf(){
+		SqlSession sqlSession = MybatisUtils.getSqlSession();
+		BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+		HashMap<String, String> map = new HashMap<>();
+		map.put("title","Mybatis很简单");
+		map.put("author","郑永凯");
+		List<Blog> blogs = mapper.queryBlogIf(map);
+		for (Blog blog : blogs) {
+			System.out.println(blog);
+		}
+		sqlSession.close();
+	}
 }
