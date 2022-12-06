@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--引入外部配置文件，优先使用db.properties里面的配置-->
+    <properties resource="db.properties">
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
+    </properties>
+    <settings>
+        <!--标准的日志工厂的实现-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!--<setting name="logImpl" value="LOG4J"/>-->
+        <!--是否开启自动驼峰命名规则(caml case)映射-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <typeAliases>
+        <!--给实体类起别名-->
+        <!--<typeAlias type="com.zyk.pojo.User" alias="User"></typeAlias>-->
+        <!--扫描实体类的包，他的默认别名就为这个类的类名，首字母小写；也可以在实体类上加@alias注解自定义别名-->
+        <package name="com.zyk.pojo"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--每一个Mapper.xml都需要在mybatis核心配置文件中注册-->
+    <mappers>
+        <mapper class="com.zyk.dao.UserMapper"></mapper>
+        <!--<mapper resource="com/zyk/dao/BlogMapper.xml"/>-->
+        <!--<mapper resource="com/zyk/dao/StudentMapper.xml"/>-->
+        <!--使用映射器接口实现类的完全限定类名 注意点：1.接口和他的mapper配置文件必须同名 2.接口和他的mapper配置文件必须在同一个包下-->
+        <!--<mapper class="com.zyk.dao.BlogMapper"></mapper>-->
+        <!--将包内的映射器接口实现全部注册为映射器 注意点：1.接口和他的mapper配置文件必须同名 2.接口和他的mapper配置文件必须在同一个包下-->
+        <!--<package name="com.zyk.dao"/>-->
+    </mappers>
+</configuration>
