@@ -29,5 +29,6 @@ public interface BlogMapper {
 	//set标签的用法
 	int updateBlog(HashMap map);
 
-
+	//动态SQL之Foreach语句
+	List<Blog> queryBlogForeach(HashMap map);
 }

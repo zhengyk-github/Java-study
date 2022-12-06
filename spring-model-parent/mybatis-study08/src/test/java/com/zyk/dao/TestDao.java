@@ -1,5 +1,6 @@
 package com.zyk.dao;
 
+import com.alibaba.druid.support.spring.stat.SpringStatUtils;
 import com.zyk.pojo.Blog;
 import com.zyk.utils.IdUtils;
 import com.zyk.utils.MybatisUtils;
@@ -7,10 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @ClassName: TestDao
@@ -104,4 +102,20 @@ public class TestDao {
 		sqlSession.close();
 	}
 
+	//queryBlogForeach  P25动态SQL之Foreach
+	@Test
+	public void queryBlogForeach(){
+		SqlSession sqlSession = MybatisUtils.getSqlSession();
+		BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+		HashMap map = new HashMap();
+		ArrayList list = new ArrayList();
+		list.add(1);
+		list.add(2);
+		map.put("ids",list);
+		List<Blog> blogs = mapper.queryBlogForeach(map);
+		for (Blog blog : blogs) {
+			System.out.println(blog);
+		}
+		sqlSession.close();
+	}
 }

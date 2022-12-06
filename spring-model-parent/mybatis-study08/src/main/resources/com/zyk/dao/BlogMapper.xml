@@ -7,15 +7,20 @@
     <insert id="addBlog" parameterType="Blog">
     insert into blog values(#{id},#{title},#{author},#{createTime},#{views})
     </insert>
-
-    <select id="queryBlogIf" parameterType="map" resultType="Blog">
-        select * from blog where 1 = 1
+    <!--sql片段(最好基于单表来定义SQL片段)1.使用sql标签抽取公共的部分 2.在需要使用的地方使用include标签引用即可-->
+    <sql id="if-title-author">
         <if test="title != null">
-            and title = #{title}
+            title = #{title}
         </if>
         <if test="author != null">
             and author = #{author}
         </if>
+    </sql>
+    <select id="queryBlogIf" parameterType="map" resultType="Blog">
+        select * from blog
+        <where>
+            <include refid="if-title-author"></include>
+        </where>
     </select>
     <!--where 元素只会在子元素返回任何内容的情况下才插入 “WHERE” 子句。而且，若子句的开头为 “AND” 或 “OR”，where 元素也会将它们去除-->
     <select id="queryBlogWhere" parameterType="map" resultType="Blog">
@@ -60,4 +65,14 @@
         where id = #{id}
     </update>
 
+
+    <!--foreach-->
+    <select id="queryBlogForeach" parameterType="map" resultType="Blog">
+        select * from blog
+        <where>
+            <foreach collection="ids" item="id" separator="or" open=" and (" close=")">
+                id = #{id}
+            </foreach>
+        </where>
+    </select>
 </mapper>
