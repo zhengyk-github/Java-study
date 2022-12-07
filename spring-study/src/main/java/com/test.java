@@ -1,4 +1,4 @@
-package com.zyk;
+package com;
 
 import com.spring.ZykApplicationContext;
 
