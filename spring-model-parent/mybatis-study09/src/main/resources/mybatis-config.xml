@@ -14,6 +14,8 @@
         <!--<setting name="logImpl" value="LOG4J"/>-->
         <!--是否开启自动驼峰命名规则(caml case)映射-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--显示的开启全局缓存(二级缓存)-->
+        <setting name="cacheEnabled" value="true"/>
     </settings>
     <typeAliases>
         <!--给实体类起别名-->

@@ -3,6 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zyk.dao.UserMapper">
-
-
+    <!--<cache eviction="FIFO" flushInterval="60000" readOnly="true" size="250"/>-->
+    <cache/> <!--需要将实体类序列化-->
+    <select id="getUserById" resultType="user">
+       select * from User where id = #{id}
+    </select>
 </mapper>

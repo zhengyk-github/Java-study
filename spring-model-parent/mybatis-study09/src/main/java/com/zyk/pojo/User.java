@@ -2,6 +2,8 @@ package com.zyk.pojo;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @ClassName: User
  * @Date: Created in 2022/12/6 14:40
@@ -11,7 +13,7 @@ import lombok.Data;
  * @Description: TODO
  **/
 @Data
-public class User {
+public class User implements Serializable {
 	private int id;
 	private String name;
 	private String pwd;
