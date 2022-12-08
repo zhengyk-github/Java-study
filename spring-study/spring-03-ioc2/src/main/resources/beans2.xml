@@ -31,8 +31,8 @@
     class:bean 对象所对应的全限定名: 包名+类型
     name:也是别名，而且name可以同时取多个别名
     -->
-    <bean id="user" class="com.zyk.pojo.User" name="userT1" >
-        <property name="name" value="zyk测试别名userT1"></property>
+    <bean id="userT" class="com.zyk.pojo.UserT" name="userT2" >
+        <property name="name" value="zyk测试别名userT2"></property>
     </bean>
 
 </beans>
