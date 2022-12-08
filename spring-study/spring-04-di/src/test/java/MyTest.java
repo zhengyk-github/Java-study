@@ -1,4 +1,6 @@
 import com.zyk.pojo.Student;
+import com.zyk.pojo.User;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,7 +17,22 @@ public class MyTest {
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		Student student = (Student) context.getBean("student");
 		System.out.println(student.toString());
-
-
 	}
+
+	//p标签
+	@Test
+	public void testUser(){
+		ApplicationContext context = new ClassPathXmlApplicationContext("userBeans.xml");
+		User user = (User) context.getBean("user");
+		System.out.println(user.toString());
+	}
+	//c标签
+	@Test
+	public void testUser2(){
+		ApplicationContext context = new ClassPathXmlApplicationContext("userBeans.xml");
+		User user = (User) context.getBean("user2");
+		System.out.println(user.toString());
+	}
+
+
 }
