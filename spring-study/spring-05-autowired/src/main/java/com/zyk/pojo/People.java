@@ -1,5 +1,7 @@
 package com.zyk.pojo;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  * @ClassName: People
  * @Date: Created in 2022/12/8 21:27
@@ -9,7 +11,9 @@ package com.zyk.pojo;
  * @Description: TODO
  **/
 public class People {
+	@Autowired
 	private Cat cat;
+	@Autowired
 	private Dog dog;
 	private String name;
 
