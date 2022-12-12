@@ -9,7 +9,7 @@
  -@Service
  -@Controller
  这四个注解功能都是一样的，都是代表将某个类注册到spring中，装配Bean
-
+-@Configuration:将想要的组件添加到容器中
 
 
 
