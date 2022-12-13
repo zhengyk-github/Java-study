@@ -11,10 +11,18 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @Description: TODO
  **/
 public class MyTest {
-	public static void main(String[] args) {
+	//方式一:使用原生Spring API接口
+	/*public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		UserService userService = context.getBean("userService", UserService.class);
 		userService.add();
 
+	}*/
+
+	//方拾二 自定义类
+	public static void main(String[] args) {
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		UserService userService = context.getBean("userService", UserService.class);
+		userService.add();
 	}
 }
