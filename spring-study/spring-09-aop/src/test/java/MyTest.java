@@ -19,10 +19,17 @@ public class MyTest {
 
 	}*/
 
-	//方拾二 自定义类
-	public static void main(String[] args) {
+	//方式二 自定义类
+	/*public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		UserService userService = context.getBean("userService", UserService.class);
 		userService.add();
+	}*/
+
+	//方式三:使用注解方式实现AOP
+	public static void main(String[] args) {
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		UserService userService = context.getBean("userService", UserService.class);
+		userService.delete();
 	}
 }

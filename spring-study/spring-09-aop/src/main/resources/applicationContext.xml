@@ -22,16 +22,20 @@
     </aop:config>-->
 
     <!--方式二:自定义类-->
-    <bean id="diy" class="com.zyk.diy.DiyPointCut"></bean>
+    <!--<bean id="diy" class="com.zyk.diy.DiyPointCut"></bean>
     <aop:config>
-        <!--自定义切面,ref要引用的类-->
+        &lt;!&ndash;自定义切面,ref要引用的类&ndash;&gt;
         <aop:aspect ref="diy" >
-            <!--切入点-->
+            &lt;!&ndash;切入点&ndash;&gt;
             <aop:pointcut id="pointcut" expression="execution(* com.zyk.service.UserServiceImpl.*(..))"/>
-            <!--通知-->
+            &lt;!&ndash;通知&ndash;&gt;
             <aop:before method="before" pointcut-ref="pointcut"></aop:before>
             <aop:after method="after" pointcut-ref="pointcut"></aop:after>
         </aop:aspect>
-    </aop:config>
+    </aop:config>-->
 
+    <!--方式三:使用注解方式实现AOP-->
+    <bean id="annotationPointCut" class="com.zyk.diy.AnnotationPointCut"></bean>
+    <!--开启注解支持-->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 </beans>
