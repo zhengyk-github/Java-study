@@ -19,7 +19,8 @@ public class MyTest {
 	@Test
 	public void getUser(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		UserMapper userMapper = context.getBean("userMapper", UserMapper.class);
+		//UserMapper userMapper = context.getBean("userMapper", UserMapper.class);
+		UserMapper userMapper = context.getBean("userMapper2", UserMapper.class);
 		List<User> user = userMapper.getUser();
 		for (User user1 : user) {
 			System.out.println("user:" + user1);

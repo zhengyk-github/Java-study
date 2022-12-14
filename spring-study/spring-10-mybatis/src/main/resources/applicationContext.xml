@@ -8,9 +8,12 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <import resource="spring-dao.xml"></import>
-
+    <!--方式一-->
     <bean id="userMapper" class="com.zyk.mapper.UserMapperImpl">
         <property name="sqlSession" ref="sqlSessionTemplate"></property>
     </bean>
-
+    <!--方式二  不用在spring-dao.xml里面注入sqlSessionFactory了 只需要UserMapperImpl2继承SqlSessionDaoSupport 下面配置即可-->
+    <bean id="userMapper2" class="com.zyk.mapper.UserMapperImpl2">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
 </beans>
