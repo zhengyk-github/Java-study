@@ -21,4 +21,6 @@ public interface UserMapper {
 	//删除一个用户 根据id
 	public int deleteUser(int id);
 
+	List<User> selectUser();
+
 }

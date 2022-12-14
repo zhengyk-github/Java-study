@@ -28,4 +28,13 @@ public class UserMapperImpl extends SqlSessionDaoSupport implements UserMapper{
 	public int deleteUser(int id) {
 		return getSqlSession().getMapper(UserMapper.class).deleteUser(id);
 	}
+
+	@Override
+	public List<User> selectUser() {
+		UserMapper mapper = getSqlSession().getMapper(UserMapper.class);
+		mapper.addUser(new User(12, "测试12", "123"));
+		mapper.deleteUser(12);
+
+		return mapper.getUser();
+	}
 }
