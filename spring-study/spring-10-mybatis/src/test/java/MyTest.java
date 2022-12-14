@@ -1,8 +1,9 @@
 import com.zyk.mapper.UserMapper;
+import com.zyk.mapper.UserMapperImpl;
 import com.zyk.pojo.User;
-import com.zyk.utils.MybatisUtils;
-import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
@@ -17,12 +18,11 @@ import java.util.List;
 public class MyTest {
 	@Test
 	public void getUser(){
-		SqlSession sqlSession = MybatisUtils.getSqlSession();
-		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-		List<User> user = mapper.getUser();
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+		UserMapper userMapper = context.getBean("userMapper", UserMapper.class);
+		List<User> user = userMapper.getUser();
 		for (User user1 : user) {
 			System.out.println("user:" + user1);
 		}
-		sqlSession.close();
 	}
 }
