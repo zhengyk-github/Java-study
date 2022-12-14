@@ -10,7 +10,7 @@
     <import resource="spring-dao.xml"></import>
 
     <bean id="userMapper" class="com.zyk.mapper.UserMapperImpl">
-        <property name="sqlSession" ref="sqlSession"></property>
+        <property name="sqlSession" ref="sqlSessionTemplate"></property>
     </bean>
 
 </beans>

@@ -18,7 +18,7 @@ import java.util.List;
 public class MyTest {
 	@Test
 	public void getUser(){
-		ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		UserMapper userMapper = context.getBean("userMapper", UserMapper.class);
 		List<User> user = userMapper.getUser();
 		for (User user1 : user) {

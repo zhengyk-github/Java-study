@@ -29,9 +29,9 @@
         <constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg>
     </bean>
 
-    <bean id="userMapper" class="com.zyk.mapper.UserMapperImpl">
+    <!--<bean id="userMapper" class="com.zyk.mapper.UserMapperImpl">
         <property name="sqlSession" ref="sqlSessionTemplate"></property>
-    </bean>
+    </bean>-->
 
     <!--Mybatis-Spring
     1.编写数据配置
