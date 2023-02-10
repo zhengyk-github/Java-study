@@ -1,4 +1,3 @@
-import com.zyk.pojo.User;
 import com.zyk.pojo.UserT;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

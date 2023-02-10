@@ -8,16 +8,9 @@ package com.zyk.pojo;
  * @Modified By:
  * @Description: TODO
  **/
-public class User {
+public class UserIOC {
 	private String name;
-
-	public User() {
-		System.out.println("User的无参构造");
-	}
-
-	public User(String name) {
-		this.name = name;
-	}
+	
 
 	public String getName() {
 		return name;
