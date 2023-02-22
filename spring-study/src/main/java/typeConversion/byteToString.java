@@ -12,9 +12,9 @@ import java.io.UnsupportedEncodingException;
  **/
 public class byteToString {
 	public static void main(String[] args) throws UnsupportedEncodingException {
-		String str = "测试ab3";
+		String str = "测试ab12";
 		byte[] bt = str.getBytes("utf-8");
-		System.out.println("bt.length:" + bt.length);//9
+		System.out.println("bt.length:" + bt.length);//10
 		for (int i = 0; i < bt.length; i++) {
 			System.out.println(i + ":" + bt[i]);
 		}

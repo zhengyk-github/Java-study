@@ -8,7 +8,7 @@ import java.io.UnsupportedEncodingException;
  * @Version: 1.0
  * @Author: zhengyongkai
  * @Modified By:
- * @Description: TODO
+ * @Description: byteToLong
  **/
 public class byteToLong {
 	public static void main(String[] args) throws UnsupportedEncodingException {
