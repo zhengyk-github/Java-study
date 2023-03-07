@@ -1,6 +1,5 @@
 package com.zyk.springcloud;
 
-import org.apache.catalina.core.ApplicationContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
@@ -15,18 +14,9 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
  **/
 @SpringBootApplication
 @EnableEurekaServer //@EnableEurekaServer 服务端的启动类，可以接受别人注册进来
-public class EurekaServer_7001 {
+public class EurekaServer_7003 {
 	public static void main(String[] args) {
-		SpringApplication.run(EurekaServer_7001.class,args);
+		SpringApplication.run(EurekaServer_7003.class,args);
 	}
-	//启动之后访问 http://localhost:7001/
-
-	/*
-    做集群的时候修改hosts文件
-	C:\Windows\System32\drivers\etc
-
-	127.0.0.1 eureka7001.com
-	127.0.0.1 eureka7002.com
-	127.0.0.1 eureka7003.com
-	*/
+	//启动之后访问 http://localhost:7003/
 }
