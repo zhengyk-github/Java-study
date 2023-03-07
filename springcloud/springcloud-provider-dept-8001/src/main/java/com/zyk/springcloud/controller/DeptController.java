@@ -28,7 +28,7 @@ public class DeptController {
 	public boolean addDept(Dept dept){
 		return deptService.addDept(dept);
 	}
-	@GetMapping("/dept/{id}")
+	@GetMapping("/dept/get/{id}")
 	public Dept queryById(@PathVariable("id") Long id){
 		return deptService.queryById(id);
 	}
