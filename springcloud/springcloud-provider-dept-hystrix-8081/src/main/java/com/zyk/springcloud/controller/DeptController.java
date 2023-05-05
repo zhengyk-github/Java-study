@@ -1,5 +1,6 @@
 package com.zyk.springcloud.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.zyk.springcloud.pojo.Dept;
 import com.zyk.springcloud.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,17 +26,15 @@ import java.util.List;
 public class DeptController {
 	@Autowired
 	private DeptService deptService;
-	//获取一些配置的信息，得到具体的微服务
-	@Autowired
-	private DiscoveryClient client;
 
 
-	@PostMapping("/dept/add")
+	/*@PostMapping("/dept/add")
 	public boolean addDept(Dept dept) {
 		return deptService.addDept(dept);
-	}
+	}*/
 
 	@GetMapping("/dept/get/{id}")
+	@HystrixCommand(fallbackMethod = "hystrixQueryById")
 	public Dept queryById(@PathVariable("id") Long id) {
 		Dept dept = deptService.queryById(id);
 		if(dept==null){
@@ -43,25 +42,18 @@ public class DeptController {
 		}
 		return dept;
 	}
+	//备选方法
+	public Dept hystrixQueryById(@PathVariable("id") Long id) {
+		return new Dept().setDno(id).setDname("id:"+id+"没有对应的信息：null--@hystrix").setDb_source("no this database in MySQL");
+	}
 
-	@GetMapping("/dept/list")
+
+
+	/*@GetMapping("/dept/list")
 	public List<Dept> queryAll() {
 		return deptService.queryAll();
-	}
+	}*/
 
-	//注册进来的微服务 获取一些消息
-	@GetMapping("/dept/discovery")
-	public Object discovery() {
-		//获取微服务列表的清单
-		List<String> services = client.getServices();
-		System.out.println("discovery.services:" + services);
-		//得到一个具体的微服务信息，通过具体的微服务id applicationName
-		List<ServiceInstance> instances = client.getInstances("springcloud-provider-dept");
-		for (ServiceInstance instance : instances) {
-			System.out.println("instance.getHost():" + instance.getHost() + ",instance.getPort():" + instance.getPort() +
-				",instance.getUri():" + instance.getUri() + ",instance.getServiceId():" + instance.getServiceId());
-		}
-		return this.client;
-	}
+
 
 }
