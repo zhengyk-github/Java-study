@@ -30,7 +30,7 @@ public class DeptConsumerController {
 	@RequestMapping("/consumer/dept/get/{id}")
 	public Dept queryById(@PathVariable("id") Long id) {
 		return this.service.queryById(id);
-	}
+	}// http://localhost/consumer/dept/get/1  浏览器访问
 
 	@RequestMapping("/consumer/dept/list")
 	public List<Dept> queryAll() {
