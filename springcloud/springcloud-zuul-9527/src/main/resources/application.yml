@@ -1,0 +1,27 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: springcloud-zuul
+#Eureka的配置，服务注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: zuul9527.com    #修改Eureka上面的默认描述信息\
+    prefer-ip-address: true
+
+info:
+  app.name: zyk-springcloud
+  company.name: 河南财经政法大学
+
+#路由 给微服务地址起别名 访问地址变为http://www.zyk.com:9527/mydept/dept/get/1 (原路径http://www.zyk.com:9527/springcloud-provider-dept/dept/get/1)
+zuul:
+  routes:
+    mydept.serviceId: springcloud-provider-dept
+    mydept.path: /mydept/**
+  ignored-services: springcloud-provider-dept  #设置springcloud-provider-dept不能访问
+# ignored-services: "*" #隐藏全部的真实项目
+# prefix: /zyk #公共的访问前缀  http://www.zyk.com:9527/zyk/mydept/dept/get/1
