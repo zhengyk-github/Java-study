@@ -1,4 +1,4 @@
-package com.zyk;
+package com.zyk.arrays;
 
 import java.util.Arrays;
 import java.util.Comparator;
