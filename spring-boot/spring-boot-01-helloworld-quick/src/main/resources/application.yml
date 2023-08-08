@@ -1,0 +1,10 @@
+server:
+ port: 8082
+
+student:
+ age: 27
+ #'zyk \n 郑永凯' 输出:Student(age=27, name=zyk \n 郑永凯)
+ #"zyk \n 郑永凯" 输出:Student(age=27, name=zyk 郑永凯)
+ name: "zyk \n 郑永凯"
+
+
